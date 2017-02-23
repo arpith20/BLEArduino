@@ -113,7 +113,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lights"
+            android:text="Light"
             android:layout_weight="0.5"
             android:gravity="center"
             android:textSize="25sp"/>
@@ -127,6 +127,11 @@
 
     </LinearLayout>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+         />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -137,16 +142,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="ToggleButton" />
+            android:text="ToggleButton"
+            android:background="@drawable/light0"/>
 
         <ToggleButton
             android:id="@+id/toggleButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
-            android:text="ToggleButton" />
+            android:layout_centerInParent="true"
+            android:background="@drawable/fan0"/>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    </LinearLayout>
 
 </LinearLayout>

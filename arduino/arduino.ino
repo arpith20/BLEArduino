@@ -17,6 +17,9 @@ void setup() {
   // you can update it using AT+BAUDx command 
   // e.g. AT+BAUD0 for 9600 bauds
   mySerial.begin(9600);
+
+  pinMode(RELAY1, OUTPUT);
+  pinMode(RELAY2, OUTPUT);
 }
 
 void loop() {
@@ -26,16 +29,17 @@ void loop() {
     c = mySerial.read();
     Serial.println(c);
     Serial.println("Got input:");
-    if (c != 48) {
-      // Non-zero input means "turn on LED".
-      digitalWrite(RELAY2, 0);
-      Serial.println("  on");
-      //digitalWrite(LED_PIN, HIGH);
-    } else {
-      // Input value zero means "turn off LED".
+    if (c == 48) {
       digitalWrite(RELAY2, 1);
-      Serial.println("  off");
-      //digitalWrite(LED_PIN, LOW);
+    } 
+    if (c == 49) {
+      digitalWrite(RELAY2, 0);
+    }
+    if (c == 50) {
+      digitalWrite(RELAY1, 1);
+    }
+    if (c == 51) {
+      digitalWrite(RELAY1, 0);
     }
     delay(1000);
   }

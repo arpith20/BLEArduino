@@ -152,24 +152,36 @@ public class DeviceControlActivity extends Activity {
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
         toggle1 = (ToggleButton) findViewById(R.id.toggleButton1);
+        toggle1.setText(null);
+        toggle1.setTextOn(null);
+        toggle1.setTextOff(null);
         toggle2 = (ToggleButton) findViewById(R.id.toggleButton2);
+        toggle2.setText(null);
+        toggle2.setTextOn(null);
+        toggle2.setTextOff(null);
 
         toggle1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     sendDataToBLE(DEVICE1_ON);
+                    toggle1.setBackgroundResource(R.drawable.light1);
                 } else {
                     sendDataToBLE(DEVICE1_OFF);
+                    toggle1.setBackgroundResource(R.drawable.light0);
                 }
             }
         });
+
+
 
         toggle2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     sendDataToBLE(DEVICE2_ON);
+                    toggle2.setBackgroundResource(R.drawable.fan1);
                 } else {
                     sendDataToBLE(DEVICE2_OFF);
+                    toggle2.setBackgroundResource(R.drawable.fan0);
                 }
             }
         });
